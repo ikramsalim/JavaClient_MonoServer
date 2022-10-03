@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+ mono:
+  image: mono:latest
+  container_name: mono_1
+  ports:
+   - "8080:8080"
+  volumes:
+   - ./:/code
+  stdin_open: true
+  tty: true
+ java:
+  image: openjdk:latest
+  container_name: java_1
+  ports:
+   - "8081:80"
+  command: ["bin/bash"]
+  volumes:
+   - ./:/code
+  stdin_open: true
+  tty: true
+  
